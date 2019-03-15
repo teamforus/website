@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/dist/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
   </head>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <body>
     <div class="dev-pages">
       <h1> <b>Quick Dev Template (qdt) - Theme </b>- website pages</h1>
@@ -465,6 +466,7 @@
             </div>
             <div class="col-xs-12 info"><span style="color: red">*</span>velden zijn verplicht</div>
             <div class="col-xs-12">
+              <div class="g-recaptcha" data-sitekey="6LdHvJcUAAAAALaqJSgihi7rTxdMqSpgEOkNQorw"></div>
               <div class="form-group center-block">
                 <button class="main_button" type="button">Verstuur</button>
               </div>
@@ -583,13 +585,26 @@ fill="#000000" stroke="none">
             <h4 class="modal-title">Vragen?<br>Neem contact met ons op</h4>
           </div>
           <div class="modal-body">
-            <form id="formContact">
+            <script>
+              $.post($("#contact-us-form").attr('action'), JSON.stringify({
+    name: $("#contact-us-form input[name='name']").val(),
+    email: $("#contact-us-form input[name='email']").val(),
+    phone: $("#contact-us-form input[name='phone']").val(),
+    organization: $("#contact-us-form input[name='organization']").val(),
+    message: $("#contact-us-form textarea[name='message']").val(),
+    'g-recaptcha-response': $("#contact-us-form textarea[name='g-recaptcha-response']").val()
+}), function (data) {
+    $(".thanks").show();
+    $("#contact-us-form button").hide();
+}, 'json');
+            </script>
+            <form action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST" id="contact-us-form" >
               <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <div class="form-group required">
                     <label class="control-label">NAAM</label>
                     <div class="input-group">
-                      <input class="form-control" id="nameInput" placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" name="name" id="nameInput" placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -611,7 +626,7 @@ fill="#000000" stroke="none">
                   <div class="form-group required">
                     <label class="control-label">EMAIL</label>
                     <div class="input-group">
-                      <input class="form-control" id="emailInput" placeholder="Email" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="emailInput" placeholder="Email" name="email" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -633,7 +648,7 @@ fill="#000000" stroke="none">
                   <div class="form-group">
                     <label class="control-label">ORGANISATIE</label>
                     <div class="input-group">
-                      <input class="form-control" id="companyInput" placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="companyInput" name="organisation" placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -655,7 +670,7 @@ fill="#000000" stroke="none">
                   <div class="form-group">
                     <label class="control-label">TELEFOONNUMBER</label>
                     <div class="input-group">
-                      <input class="form-control" id="telInput" placeholder="Telefoonnumber" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="telInput" placeholder="Telefoonnumber"  name="phone" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -677,7 +692,7 @@ fill="#000000" stroke="none">
                   <div class="form-group required">
                     <label class="control-label">BERICHT</label>
                     <div class="input-group">
-                      <textarea class="form-control" id="messageInput" placeholder="Bericht"></textarea><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <textarea class="form-control" id="messageInput" name="message" placeholder="Bericht"></textarea><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
