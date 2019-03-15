@@ -586,19 +586,19 @@ fill="#000000" stroke="none">
           </div>
           <div class="modal-body">
             <script>
-              $.post($("#contact-us-form").attr('action'), JSON.stringify({
-    name: $("#contact-us-form input[name='name']").val(),
-    email: $("#contact-us-form input[name='email']").val(),
-    phone: $("#contact-us-form input[name='phone']").val(),
-    organization: $("#contact-us-form input[name='organization']").val(),
-    message: $("#contact-us-form textarea[name='message']").val(),
-    'g-recaptcha-response': $("#contact-us-form textarea[name='g-recaptcha-response']").val()
+              $.post($("#formContact").attr('action'), JSON.stringify({
+    name: $("#formContact input[name='name']").val(),
+    email: $("#formContact input[name='email']").val(),
+    phone: $("#formContact input[name='phone']").val(),
+    organization: $("#formContact input[name='organization']").val(),
+    message: $("#formContact textarea[name='message']").val(),
+    'g-recaptcha-response': $("#formContact textarea[name='g-recaptcha-response']").val()
 }), function (data) {
     $(".thanks").show();
-    $("#contact-us-form button").hide();
+    $("#formContact button").hide();
 }, 'json');
             </script>
-            <form action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST" id="contact-us-form" >
+            <form action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST" id="formContact" >
               <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <div class="form-group required">
@@ -713,6 +713,9 @@ fill="#000000" stroke="none">
                 <div class="col-xs-12 info"><span style="color: red">*</span>velden zijn verplicht</div>
                 <div class="col-xs-12">
                   <div class="form-group center-block">
+                      <br/>
+                      <div class="g-recaptcha" data-sitekey="6LdHvJcUAAAAALaqJSgihi7rTxdMqSpgEOkNQorw"></div>
+                      <br/>
                     <button class="main_button" type="button">Verstuur</button>
                   </div>
                 </div>
