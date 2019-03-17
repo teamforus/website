@@ -49,7 +49,7 @@ module.exports = {
                         ],
                         "dest": "/",
                         "name": "app.js",
-                        "minify": true,
+                        "minify": false,
                         "sourcemap": true,
                         "browserify": true
                     }, {
@@ -58,7 +58,7 @@ module.exports = {
                         ],
                         "dest": "/raw",
                         "path": "/raw",
-                        "minify": true,
+                        "minify": false,
                         "sourcemap": false,
                         "browserify": false
                     }, {
@@ -75,8 +75,8 @@ module.exports = {
                         "src": "style.scss",
                         "watch": "includes/**/*.scss",
                         "path": "/",
-                        "name": "style.min.css",
-                        "minify": true
+                        "name": "style.css",
+                        "minify": false
                     }],
                     "pug": [{
                         "path": "/",
