@@ -1,0 +1,48 @@
+form#formContact
+    .row
+        .col-xs-12.col-md-6
+            .form-group.required
+                label.control-label NAAM
+                .input-group
+                    input#nameInput.form-control(placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);" )
+                    a(href="#").clear_field
+                        include ../../../resources/assets/img/svg/clear-field.svg
+                    span.help-block
+        .col-xs-12.col-md-6
+            .form-group.required
+                label.control-label EMAIL
+                .input-group
+                    input#emailInput.form-control(placeholder="Email" value="" onkeyup="this.setAttribute('value', this.value);" )
+                    a(href="#").clear_field
+                        include ../../../resources/assets/img/svg/clear-field.svg
+                    span.help-block
+        .col-xs-12.col-md-6
+            .form-group
+                label.control-label ORGANISATIE
+                .input-group
+                    input#companyInput.form-control(placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);" )
+                    a(href="#").clear_field
+                        include ../../../resources/assets/img/svg/clear-field.svg
+                    span.help-block
+        .col-xs-12.col-md-6
+            .form-group
+                label.control-label TELEFOONNUMBER
+                .input-group
+                    input#telInput.form-control(placeholder="Telefoonnumber" value="" onkeyup="this.setAttribute('value', this.value);" )
+                    a(href="#").clear_field
+                        include ../../../resources/assets/img/svg/clear-field.svg
+        .col-xs-12
+            .form-group.required
+                label.control-label BERICHT
+                .input-group
+                    textarea#messageInput.form-control(placeholder="Bericht" )
+
+                    a(href="#").clear_field
+                        include ../../../resources/assets/img/svg/clear-field.svg
+                    span.help-block
+        .col-xs-12.info
+            span(style="color: red") *
+            | velden zijn verplicht
+        .col-xs-12
+            .form-group.center-block
+                button.main_button(type="button" disabled="disabled") Verstuur

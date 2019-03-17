@@ -1,0 +1,198 @@
+extends layout/layout
+block content
+    .wrapper.wrapper_value_allowance
+        .container
+            .row
+                .col-xs-12
+                    h1.wrapper_title Veilige waarde-uitkering
+                    p.wrapper_desc
+                        | Efficiënt en eerlijk met fondsen omgaan. Inzicht en overzicht houden.
+                    div
+                        a.btn.main_button(href="#" data-toggle="modal" data-target="#modalContact") Neem contact op
+
+    .wrapper.wrapper_concept
+        .container
+            .wrapper_logo_title
+                include ../resources/assets/img/svg/platform.svg
+                span FORUS
+            p.wrapper_desc Geld op een veilige, efficiënte en eerlijke manier uitgeven? Inzicht en overzicht houden? Maak een fonds. Accepteer aanbieders die hun producten en diensten beschikbaar mogen stellen. Voeg mensen die voor de regeling in aanmerking komen toe. Geef vouchers uit die ze bij de aanbieders kunnen besteden
+
+    .wrapper.wrapper_roles
+        .container
+            h2.wrapper_title Forus kent vier rollen:
+            .row.roles
+                .col-xs-6.col-sm-6.col-md-3.role
+                    .role_content
+                        .title Sponsor
+                        .text die het geld heeft en/of beheert
+                .col-xs-6.col-sm-6.col-md-3.role
+                    .role_content
+                        .title Validator
+                        .text die aanbieders en aanvragers goedkeurt
+
+                .col-xs-6.col-sm-6.col-md-3.role
+                    .role_content
+                        .title Aanbieder
+                        .text waar het geld kan worden uitgegeven
+                .col-xs-6.col-sm-6.col-md-3.role
+                    .role_content
+                        .title Aanvrager
+                        .text die in aanmerking komt voor een uitkering
+                .col-xs-12
+                    p.wrapper_desc Elke rol heeft een eigen webomgeving. Zo kunnen de aanbieders hun omzet bekijken en kunnen gebruikers zien hoe veel ze nog te besteden hebben.
+
+
+    .wrapper.wrapper_parties_list
+        .container
+            ul.nav.nav-tabs
+                li.active
+                    a(data-toggle="tab" href="#panel1") Aanvrager
+                li
+                    a(data-toggle="tab" href="#panel2") Aanbieder
+                li
+                    a(data-toggle="tab" href="#panel3") Sponsor
+                li
+                    a(data-toggle="tab" href="#panel4") Validator
+            .tab-content
+                #panel1.tab-pane.fade.in.active
+                    .wrapper_tab_video
+                        video(id="player_tab_1" )
+                            source(src="assets/video/Aanvrager.mov" type="video/mp4")
+                    a.btn_link(href="#" )
+                        span Bekijk de film
+                        span: include ../resources/assets/img/svg/play-arrow.svg
+
+
+                #panel2.tab-pane.fade
+                    .wrapper_tab_video
+                        video(id="player_tab_2" )
+                            source(src="assets/video/Aanbieder.mov" type="video/mp4")
+                    a.btn_link(href="#" )
+                        span Bekijk de film
+                        span: include ../resources/assets/img/svg/play-arrow.svg
+
+
+                #panel3.tab-pane.fade
+                    .wrapper_tab_video
+                        video(id="player_tab_3" )
+                            source(src="assets/video/Sponsor.mov" type="video/mp4")
+                    a.btn_link(href="#" )
+                        span Bekijk de film
+                        span: include ../resources/assets/img/svg/play-arrow.svg
+
+
+                #panel4.tab-pane.fade
+                    .wrapper_tab_video
+                        video(id="player_tab_4" )
+                            source(src="assets/video/Validator.mov" type="video/mp4")
+                    a.btn_link(href="#" )
+                        span Bekijk de film
+                        span: include ../resources/assets/img/svg/play-arrow.svg
+    .wrapper.wrapper_start
+        .container
+            .wrapper_block_bg
+                .row
+                    .col-xs-12.hidden-sm.hidden-md.hidden-lg
+                        h2.wrapper_title Hoe werkt Forus voor jou?
+                    .col-xs-12.col-md-5
+                        img(src="assets/img/how_work.png")
+                    .col-xs-12.col-md-7
+                        h2.wrapper_title.hidden-xs Hoe werkt Forus voor jou?
+                        p.wrapper_desc Forus is makkelijk aan de voorkant en goed doordacht aan de achterkant. De back-end is voor iedereen gelijk, de front-end maken we op maat. Compleet met eigen huisstijl.
+                        p.wrapper_desc Het team helpt je met conceptualisatie, implementatie, programmering en beheer. Ook verlenen we support aan sponsor en aanbieder.
+
+
+    .wrapper.wrapper_benefits
+        .container
+            .wrapper_title Wat zijn de voordelen van Forus?
+            ul
+                li Papierwinkel en bureaucratie zijn verleden tijd
+                li Altijd overzicht over meerdere fondsen
+                li Snelle aanmeldprocedure
+                li Helder inzicht in de status van het fonds
+                li Zicht en toezicht op alle transacties
+                li Veiligheid voor alle partijen
+                li Ook geschikt voor digibeten
+
+    .wrapper.wrapper_success_stories
+        .container
+            h2.wrapper_title Succesverhalen met Forus
+        .success_story.success_story_1
+            .container
+                .fix_side.nav
+                    div
+                        .frame
+                            .nav_story
+                                ul
+                                    li.active
+                                        a(href="#part_story_11")
+                                    li
+                                        a(href="#part_story_12")
+                                    li
+                                        a(href="#part_story_13")
+                                    li
+                                        a(href="#part_story_14")
+                #part_story_11.part_story
+                    .part_story_label Implementatie
+                    .part_story_title Kindpakket Zuidhorn
+                    .part_story_macbook.hidden-sm.hidden-md.hidden-lg
+                        .macbook
+                            div
+                                .frame
+                                    img(src="assets/img/macbook.png")
+                                    .screens
+                                        img(src="assets/img/macbook_img_1.png")
+                    .part_story_content Samen met de gemeente Zuidhorn hebben we een toepassing van Forus ontwikkeld. Deze is speciaal bedoeld voor de Kindpakket-regeling voor minima.
+
+                .fix_side.macbook.hidden-xs
+                    div
+                        .frame
+                            img(src="assets/img/macbook.png")
+                            .screens
+                                img(src="assets/img/macbook_img_1.png" data-part="#part_story_11")
+                                img(src="assets/img/macbook_img_1.png" data-part="#part_story_12")
+                                img(src="assets/img/macbook_img_1.png" data-part="#part_story_13")
+                                img(src="assets/img/macbook_img_1.png" data-part="#part_story_14")
+        .success_story.success_story_2
+            .container
+                .fix_side.iphone.hidden-xs
+                    div
+                        .frame
+                            img(src="assets/img/iphone-x-colors.png")
+                            .screens
+                                img(src="assets/img/iphone_img_1.png" data-part="#part_story_21")
+                                img(src="assets/img/iphone_img_1.png" data-part="#part_story_22")
+                                img(src="assets/img/iphone_img_1.png" data-part="#part_story_23")
+
+                #part_story_21.part_story
+                    .part_story_label Implementatie
+                    .part_story_title Meedoen-regeling Nijmegen
+                    .part_story_iphone.hidden-sm.hidden-md.hidden-lg
+                        .iphone
+                            div
+                                .frame
+                                    img(src="assets/img/iphone-x-colors.png")
+                                    .screens
+                                        img(src="assets/img/iphone_img_1.png" data-part="#part_story_21")
+                    .part_story_content Voor de gemeente NIjmegen hebben we de meedoen-regeling voor minima uitgegeven met Forus.
+                .fix_side.nav
+                    div
+                        .frame
+                            .nav_story
+                                ul
+                                    li.active
+                                        a(href="#part_story_21")
+                                    li
+                                        a(href="#part_story_22")
+                                    li
+                                        a(href="#part_story_23")
+
+    .wrapper.wrapper_contact_form.hidden-sm.hidden-md.hidden-lg
+        .container
+            include layout/includes/formContact
+
+
+
+
+
+
