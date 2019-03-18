@@ -92,7 +92,6 @@ $(document).ready(function(){
 
     });
 
-
     $('form .form-group .form-control').change(function(){
         validateForm($(this).closest('form'));
     });
@@ -160,6 +159,19 @@ $(document).ready(function(){
         }
     }
 
+    $('#formSubmit').click(function(){
+        $.post($("#formContact").attr('action'), JSON.stringify({
+            name: $("#formContact input[name='name']").val(),
+            email: $("#formContact input[name='email']").val(),
+            phone: $("#formContact input[name='phone']").val(),
+            organization: $("#formContact input[name='organization']").val(),
+            message: $("#formContact textarea[name='message']").val(),
+            'g-recaptcha-response': $("#formContact textarea[name='g-recaptcha-response']").val()
+        }), function (data) {
+            $(".thanks").show();
+            $("#formContact button").hide();
+        }, 'json');
+    });
 });
 
 var lastScrollTop = 0;

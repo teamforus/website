@@ -10,7 +10,33 @@ Forus.io
     <link rel="stylesheet" href="assets/dist/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/dist/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
+  <style>
+  .thanks {
+  display:none;
+  }
+  .grecaptcha-badge{
+    display: none;
+}</style>
+              <script>
+                $(document).ready(function () {
+                $('#formSubmit').click(function(){
+                  $.post($("#formContact").attr('action'), JSON.stringify({
+        name: $("#formContact input[name='name']").val(),
+        email: $("#formContact input[name='email']").val(),
+        phone: $("#formContact input[name='phone']").val(),
+        organization: $("#formContact input[name='organization']").val(),
+        message: $("#formContact textarea[name='message']").val(),
+        'g-recaptcha-response': $("#formContact textarea[name='g-recaptcha-response']").val()
+    }), function (data) {
+        $(".thanks").show();
+        $("#formContact button").hide();
+    }, 'json');
+                });
+                });
+                </script>
   <body>
     <div class="dev-pages">
       <h1> <b>Forus</h1>
@@ -350,7 +376,7 @@ Forus.io
     </div>
     <div class="wrapper wrapper_contact_form hidden-sm hidden-md hidden-lg">
       <div class="container">
-        <form id="formContact">
+        <form id="other">
           <div class="row">
             <div class="col-xs-12 col-md-6">
               <div class="form-group required">
@@ -464,8 +490,9 @@ Forus.io
             </div>
             <div class="col-xs-12 info"><span style="color: red">*</span>velden zijn verplicht</div>
             <div class="col-xs-12">
+              <div class="g-recaptcha" data-sitekey="6Ldh7pcUAAAAAAdvLD_XQ3sJ9o2ewMut5niU8ZT5"></div>
               <div class="form-group center-block">
-                <button class="main_button" type="button">Verstuur</button>
+                <button class="main_button" type="submit">Verstuur</button>
               </div>
             </div>
           </div>
@@ -579,16 +606,16 @@ fill="#000000" stroke="none">
     </g>
 </svg>
             </button>
-            <h4 class="modal-title">Vragen?<br>Neem contact met ons op</h4>
+            <h4 class="modal-title">Vragen?<br>Neem contact met ons op.</h4>
           </div>
           <div class="modal-body">
-            <form id="formContact">
+            <form action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST" id="formContact" >
               <div class="row">
                 <div class="col-xs-12 col-md-6">
                   <div class="form-group required">
                     <label class="control-label">NAAM</label>
                     <div class="input-group">
-                      <input class="form-control" id="nameInput" placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" name="name" id="nameInput" placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -610,7 +637,7 @@ fill="#000000" stroke="none">
                   <div class="form-group required">
                     <label class="control-label">EMAIL</label>
                     <div class="input-group">
-                      <input class="form-control" id="emailInput" placeholder="Email" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="emailInput" placeholder="Email" name="email" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -632,7 +659,7 @@ fill="#000000" stroke="none">
                   <div class="form-group">
                     <label class="control-label">ORGANISATIE</label>
                     <div class="input-group">
-                      <input class="form-control" id="companyInput" placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="companyInput" name="organization" placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -654,7 +681,7 @@ fill="#000000" stroke="none">
                   <div class="form-group">
                     <label class="control-label">TELEFOONNUMBER</label>
                     <div class="input-group">
-                      <input class="form-control" id="telInput" placeholder="Telefoonnumber" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <input class="form-control" id="telInput" placeholder="Telefoonnumber"  name="phone" value="" onkeyup="this.setAttribute('value', this.value);"><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -676,7 +703,7 @@ fill="#000000" stroke="none">
                   <div class="form-group required">
                     <label class="control-label">BERICHT</label>
                     <div class="input-group">
-                      <textarea class="form-control" id="messageInput" placeholder="Bericht"></textarea><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
+                      <textarea class="form-control" id="messageInput" name="message" placeholder="Bericht"></textarea><a class="clear_field" href="#"><?xml version="1.0" encoding="UTF-8"?>
 <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
     <title>C2F396B0-7149-4CB1-B414-967E6824F283</title>
@@ -697,7 +724,10 @@ fill="#000000" stroke="none">
                 <div class="col-xs-12 info"><span style="color: red">*</span>velden zijn verplicht</div>
                 <div class="col-xs-12">
                   <div class="form-group center-block">
-                    <button class="main_button" type="button">Verstuur</button>
+                    <p class="thanks">Bedankt! Er wordt zo snel mogelijk contact met u opgenomen.</p>
+                    <button id="formSubmit" class="main_button g-recaptcha"
+                    data-sitekey="6LfA-JcUAAAAAC9SpgAr2ZmL4rFwjb83_U2MDcfQ"
+                    data-badge="inline" type="submit">Versturen</button>
                   </div>
                 </div>
               </div>

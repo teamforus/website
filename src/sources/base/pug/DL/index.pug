@@ -1,0 +1,58 @@
+doctype
+html(lang="en")
+    head
+    title Je wordt doorverwezen naar de app store voor uw apparaat.
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    script.
+        function isiOS() {
+
+            var iDevices = [
+                'iPad Simulator',
+                'iPhone Simulator',
+                'iPod Simulator',
+                'iPad',
+                'iPhone',
+                'iPod'
+            ];
+
+            if (!!navigator.platform) {
+                while (iDevices.length) {
+                    if (navigator.platform === iDevices.pop()) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        function isAndroid() {
+            var ua = navigator.userAgent.toLowerCase();
+            var isAndroid = ua.indexOf("android") > -1;
+            return isAndroid;
+        }
+    link(rel="stylesheet", href="../assets/css/style.css")
+    meta(name="theme-color" content="#ffffff")
+
+    body
+
+
+        .download
+            .download__title Je wordt doorverwezen naar de app store voor uw apparaat.
+
+            .download__subtitle Gebeurd dit niet?
+
+            .download__buttons
+
+                a#ios_button.download__buttons-item(href="https://itunes.apple.com/nl/app/me-forus/id1422610676")
+                    img(src="../assets/img/ios.png" alt="")
+                a#android_button.download__buttons-item(href="https://play.google.com/store/apps/details?id=io.forus.me")
+                    img(src="../assets/img/android.png" alt="")
+
+    script(src="../assets/dist/jquery/jquery.min.js")
+    script.
+        if (isiOS()) {
+            document.getElementById('ios_button').click();
+        } else if (isAndroid()) {
+            document.getElementById('android_button').click();
+        }

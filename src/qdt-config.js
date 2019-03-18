@@ -84,9 +84,9 @@ module.exports = {
                         "watch": ["layout/**/*.pug"],
                         "path": "/"
                     }, {
-                        "path": "/raw/tpl",
-                        "src": ["raw/**/*.pug"],
-                        "path": "/tpl"
+                        "path": "/DL",
+                        "src": ["DL/**/*.pug"],
+                        "path": "/DL"
                     }]
                 }
             }
@@ -103,6 +103,20 @@ module.exports = {
             "server": {
                 "path": "/",
                 "port": 3000
+            },
+            "tasks": {
+                "settings": {
+                    "pug": [{
+                        "path": "/",
+                        "src": ["*.pug"],
+                        "watch": ["layout/**/*.pug"],
+                        "dest": "/"
+                    }, {
+                        "path": "/DL",
+                        "src": ["DL/**/*.pug"],
+                        "dest": "/DL"
+                    }]
+                }
             }
         },
         "html-panel": {

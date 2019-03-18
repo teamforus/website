@@ -14,8 +14,8 @@ block content
         .container
             .wrapper_logo_title
                 include ../resources/assets/img/svg/platform.svg
-                span FORUS
-            p.wrapper_desc Geld op een veilige, efficiënte en eerlijke manier uitgeven? Inzicht en overzicht houden? Maak een fonds. Accepteer aanbieders die hun producten en diensten beschikbaar mogen stellen. Voeg mensen die voor de regeling in aanmerking komen toe. Geef vouchers uit die ze bij de aanbieders kunnen besteden
+                span HET PLATFORM
+            p.wrapper_desc Geld op een veilige, efficiënte en eerlijke manier uitgeven? Inzicht en overzicht houden? Maak een fonds. Accepteer aanbieders die hun producten en diensten beschikbaar mogen stellen. Voeg mensen die voor de regeling in aanmerking komen toe. Geef vouchers uit die ze bij de aanbieders kunnen besteden. Forus is een digitaal platform voor waarde-uitkering.
 
     .wrapper.wrapper_roles
         .container
@@ -189,8 +189,55 @@ block content
 
     .wrapper.wrapper_contact_form.hidden-sm.hidden-md.hidden-lg
         .container
-            include layout/includes/formContact
+            form#other
+                .row
+                    .col-xs-12.col-md-6
+                        .form-group.required
+                            label.control-label NAAM
+                            .input-group
+                                input#nameInput.form-control(placeholder="Naam" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group.required
+                            label.control-label EMAIL
+                            .input-group
+                                input#emailInput.form-control(placeholder="Email" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group
+                            label.control-label ORGANISATIE
+                            .input-group
+                                input#companyInput.form-control(placeholder="Organisatie" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group
+                            label.control-label TELEFOONNUMBER
+                            .input-group
+                                input#telInput.form-control(placeholder="Telefoonnumber" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                    .col-xs-12
+                        .form-group.required
+                            label.control-label BERICHT
+                            .input-group
+                                textarea#messageInput.form-control(placeholder="Bericht" )
 
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.info
+                        span(style="color: red") *
+                        | velden zijn verplicht
+                    .col-xs-12
+                        .g-recaptcha(data-sitekey="6Ldh7pcUAAAAAAdvLD_XQ3sJ9o2ewMut5niU8ZT5")
+                        .form-group.center-block
+                            button.main_button(type="submit") Verstuur
 
 
 
