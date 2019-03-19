@@ -119,7 +119,7 @@ $(document).ready(function(){
         var message = $(form).find('#messageInput').val();
         var telephone = $(form).find('#telInput').val();
         var inputVal = [names, email, message, telephone];
-        var inputMessage = ["name", "email address", "message", "phone"];
+        var inputMessage = ["naam", "email adres", "bericht", "telefoonnummer"];
 
         $('.error').hide();
         form.find('.form-group').each(function (i, el) {
@@ -127,24 +127,24 @@ $(document).ready(function(){
         });
 
         if(inputVal[0] == "" || !nameReg.test(names)){
-            $(names_field).closest('.form-group').find('.help-block').html("").html('Please enter your ' + inputMessage[0]);
+            $(names_field).closest('.form-group').find('.help-block').html("").html('Vul uw ' + inputMessage[0] + ' in.');
             $(names_field).closest('.form-group').addClass('has-error');
             error = true;
         }
         if(inputVal[1] == "" || !emailReg.test(email)){
-            $(email_field).closest('.form-group').find('.help-block').html("").html('Please enter your ' + inputMessage[1]);
+            $(email_field).closest('.form-group').find('.help-block').html("").html('Vul uw ' + inputMessage[1] + ' in.');
             $(email_field).closest('.form-group').addClass('has-error');
             error = true;
         }
 
         if(inputVal[2] == ""){
-            $(message_field).closest('.form-group').find('.help-block').html("").html('Please enter your ' + inputMessage[2]);
+            $(message_field).closest('.form-group').find('.help-block').html("").html('Vul een ' + inputMessage[2] + ' in.');
             $(message_field).closest('.form-group').addClass('has-error');
             error = true;
         }
 
         if($(telephone).length > 0 && !numberReg.test(telephone)){
-            $(telephone_field).closest('.form-group').find('.help-block').html("").html('Numbers only');
+            $(telephone_field).closest('.form-group').find('.help-block').html("").html('Alleen nummers toegestaan');
             $(telephone_field).closest('.form-group').addClass('has-error');
             error = true;
         }
