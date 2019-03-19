@@ -199,12 +199,12 @@ $('.site_footer .nav_category .title').on('click', function () {
 
 $("#modalContact").on('show.bs.modal', function (e) {
     $('body > .wrapper, body > header, body > footer').each(function (i, el) {
-        //$(el).addClass('blur');
+        $(el).addClass('blur');
     });
 });
 $("#modalContact").on('hidden.bs.modal', function (e) {
     $('body > .wrapper, body > header, body > footer').each(function (i, el) {
-        //$(el).removeClass('blur');
+        $(el).removeClass('blur');
     });
 });
 
