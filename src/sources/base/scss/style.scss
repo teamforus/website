@@ -220,6 +220,7 @@ html {
                                         color: $forus-sky-blue;
                                         text-align: center;
                                         &:hover, &:active, &focus{
+                                            cursor: not-allowed;
                                             color: #fff;
                                             background: $forus-sky-blue;
                                             font-weight: bold;
