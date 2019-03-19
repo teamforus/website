@@ -201,17 +201,13 @@ $('.site_footer .nav_category .title').on('click', function () {
 });
 
 $("#modalContact").on('show.bs.modal', function (e) {
-    $('body > div').each(function (i, el) {
-         if(!$(el).hasClass('modal')){
-             $(el).addClass('blur');
-         }
+    $('body > .wrapper, body > header, body > footer').each(function (i, el) {
+        //$(el).addClass('blur');
     });
 });
 $("#modalContact").on('hidden.bs.modal', function (e) {
-    $('body > div').each(function (i, el) {
-        if(!$(el).hasClass('modal')){
-            $(el).removeClass('blur');
-        }
+    $('body > .wrapper, body > header, body > footer').each(function (i, el) {
+        //$(el).removeClass('blur');
     });
 });
 
