@@ -99,7 +99,6 @@ $(document).ready(function(){
     $('.clear_field').on('click', function (e) {
         e.preventDefault();
 
-        console.log('dfvdv');
         $(this).closest('.form-group').find('.form-control').val('');
     });
 
@@ -148,8 +147,6 @@ $(document).ready(function(){
             $(telephone_field).closest('.form-group').addClass('has-error');
             error = true;
         }
-
-        console.log(error);
 
         if(error){
             $(form).find('button').prop('disabled','disabled');
