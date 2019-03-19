@@ -138,7 +138,7 @@ $(document).ready(function(){
         }
 
         if(inputVal[2] == ""){
-            $(message_field).closest('.form-group').find('.help-block').html("").html('Vul uw ' + inputMessage[2] + ' in.');
+            $(message_field).closest('.form-group').find('.help-block').html("").html('Vul een ' + inputMessage[2] + ' in.');
             $(message_field).closest('.form-group').addClass('has-error');
             error = true;
         }
