@@ -52,6 +52,98 @@ function change_in_fix(block, n, scrollCount) {
     }
 }
 
+function validateElement(element){
+
+    //var nameReg = /^([a-zА-Яа-я]+[,.]?[ ]?|[a-zА-Яа-я]+['-]?)+$/;
+    var nameReg = /^[^0-9]+$/;
+
+    //var numberReg = /^(?:(?:\+?[0-9]{1,3}\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
+    /*
+    numbers like this:
+     +14(555)5555555
+     +380635555555
+     555-555-5555
+     +1-555-532-3455
+     */
+
+    var numberReg = /^(?:\+?)[0-9]+$/;
+    var emailReg = /^\S+@\S+$/;
+
+
+    var names_field;
+    var email_field;
+    var message_field;
+    var telephone_field;
+
+    var names = '';
+    var email = '';
+    var message = '';
+    var telephone = '';
+
+    var error_field = 0;
+
+    var form = element.closest('form');
+    var inputMessage = {
+        'name':"Vul uw naam in.",
+        'email':"Vul uw email adres in.",
+        'message': "Vul een bericht in.",
+        'phone': "Alleen nummers toegestaan"
+    };
+
+    $(element).closest('.form-group').removeClass('has-error').find('.help-block').html('');
+
+    if($(element).attr('id') == 'nameInput'){
+        names_field = $(element);
+        names = $(element).val();
+
+        if(names == "" || !nameReg.test(names)){
+            $(names_field).closest('.form-group').find('.help-block').html("").html(inputMessage['name']);
+            $(names_field).closest('.form-group').addClass('has-error');
+        }
+    }
+    else if($(element).attr('id') == 'emailInput'){
+        email_field = $(element);
+        email = $(element).val();
+
+        if(email == "" || !emailReg.test(email)){
+            $(email_field).closest('.form-group').find('.help-block').html("").html(inputMessage['email']);
+            $(email_field).closest('.form-group').addClass('has-error');
+        }
+    }
+    else if($(element).attr('id') == 'messageInput'){
+        message_field = $(element);
+        message = $(element).val();
+
+        if(message == ""){
+            $(message_field).closest('.form-group').find('.help-block').html("").html(inputMessage['message']);
+            $(message_field).closest('.form-group').addClass('has-error');
+        }
+    }
+    else if($(element).attr('id') == 'telInput'){
+        telephone_field = $(element);
+        telephone = $(element).val();
+
+        if($(telephone_field).length > 0 && telephone !='' && !numberReg.test(telephone)){
+            $(telephone_field).closest('.form-group').find('.help-block').html("").html(inputMessage['phone']);
+            $(telephone_field).closest('.form-group').addClass('has-error');
+        }
+    }
+
+
+    $(form).find('.form-control').each(function (i, el) {
+        if($(el).closest('.form-group').hasClass('has-error') || $(el).closest('.required').find('.form-control').val() == ''){
+            error_field += 1;
+        }
+    });
+
+    if(error_field > 0){
+        $(form).find('button').prop('disabled','disabled');
+    }
+    else{
+        $(form).find('button').removeAttr("disabled");
+    }
+}
+
 $('.btn_link').on('click', function(e) {
 
     e.preventDefault();
@@ -92,69 +184,23 @@ $(document).ready(function(){
 
     });
 
-    $('form .form-group .form-control').change(function(){
-        validateForm($(this).closest('form'));
+    $('form#formContact .form-group .form-control').on('change',function(){
+        validateElement($(this));
+    }).on('keypress', function (e) {
+        if(e.which === 13){
+            validateElement($(this));
+        }
+    }).on('keyup', function (e) {
+        validateElement($(this));
     });
 
     $('.clear_field').on('click', function (e) {
         e.preventDefault();
 
         $(this).closest('.form-group').find('.form-control').val('');
+
+        validateElement($(this).closest('.form-group').find('.form-control'));
     });
-
-    function validateForm(form){
-        var error = false;
-
-        var nameReg = /^[A-Za-z]+$/;
-        var numberReg = /^[0-9]+$/;
-        var emailReg = /^\S+@\S+$/;
-
-        var names_field = $(form).find('#nameInput');
-        var email_field = $(form).find('#emailInput');
-        var message_field = $(form).find('#messageInput');
-        var telephone_field = $(form).find('#telInput');
-        var names = $(form).find('#nameInput').val();
-        var email = $(form).find('#emailInput').val();
-        var message = $(form).find('#messageInput').val();
-        var telephone = $(form).find('#telInput').val();
-        var inputVal = [names, email, message, telephone];
-        var inputMessage = ["naam", "email adres", "bericht", "telefoonnummer"];
-
-        $('.error').hide();
-        form.find('.form-group').each(function (i, el) {
-            $(el).removeClass('has-error').find('.help-block').html('');
-        });
-
-        if(inputVal[0] == "" || !nameReg.test(names)){
-            $(names_field).closest('.form-group').find('.help-block').html("").html('Vul uw ' + inputMessage[0] + ' in.');
-            $(names_field).closest('.form-group').addClass('has-error');
-            error = true;
-        }
-        if(inputVal[1] == "" || !emailReg.test(email)){
-            $(email_field).closest('.form-group').find('.help-block').html("").html('Vul uw ' + inputMessage[1] + ' in.');
-            $(email_field).closest('.form-group').addClass('has-error');
-            error = true;
-        }
-
-        if(inputVal[2] == ""){
-            $(message_field).closest('.form-group').find('.help-block').html("").html('Vul een ' + inputMessage[2] + ' in.');
-            $(message_field).closest('.form-group').addClass('has-error');
-            error = true;
-        }
-
-        if($(telephone).length > 0 && !numberReg.test(telephone)){
-            $(telephone_field).closest('.form-group').find('.help-block').html("").html('Alleen nummers toegestaan');
-            $(telephone_field).closest('.form-group').addClass('has-error');
-            error = true;
-        }
-
-        if(error){
-            $(form).find('button').prop('disabled','disabled');
-        }
-        else{
-            $(form).find('button').removeAttr("disabled");
-        }
-    }
 
     $('#formSubmit').click(function(){
         $.post($("#formContact").attr('action'), JSON.stringify({
@@ -201,6 +247,7 @@ $("#modalContact").on('show.bs.modal', function (e) {
     $('body > .wrapper, body > header, body > footer').each(function (i, el) {
         $(el).addClass('blur');
     });
+    $('#formSubmit').prop('disabled','disabled');
 });
 $("#modalContact").on('hidden.bs.modal', function (e) {
     $('body > .wrapper, body > header, body > footer').each(function (i, el) {
