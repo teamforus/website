@@ -1037,6 +1037,7 @@ html {
             textarea{
                 height: 100px!important;
                 resize: none;
+                overflow: hidden;
             }
             input,
             textarea,

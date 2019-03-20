@@ -186,12 +186,14 @@ $(document).ready(function(){
 
     $('form#formContact .form-group .form-control').on('change',function(){
         validateElement($(this));
-    }).on('keypress', function (e) {
+    }).on('keyup', function (e) {
+        validateElement($(this));
+    });
+
+    $('form#formContact .form-group input.form-control').on('keypress', function (e) {
         if(e.which === 13){
             validateElement($(this));
         }
-    }).on('keyup', function (e) {
-        validateElement($(this));
     });
 
     $('.clear_field').on('click', function (e) {
