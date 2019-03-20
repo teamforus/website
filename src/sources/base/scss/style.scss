@@ -971,6 +971,7 @@ html {
                             }
                             &:hover, &:focus, &:active {
                                 background: transparent;
+                                background-color: transparent!important;
                             }
                         }
                         &.social {
@@ -1336,10 +1337,12 @@ html {
                         margin: 0 0 20px;
                     }
                     .success_story{
+                        margin-bottom: 30px!important;
                         .part_story{
                             width: 100%;
                             padding: 0;
                             margin: 0 0 30px;
+                            text-align: center;
                             height: auto!important;
                             &_label{
                                 background: transparent;
@@ -1357,6 +1360,9 @@ html {
                                     position: inherit!important;
                                     width: 100%;
                                     text-align: center;
+                                    max-width: 300px;
+                                    margin: 0 auto;
+                                    display: block;
                                 }
                                 .macbook{
                                     .frame{
@@ -1391,9 +1397,9 @@ html {
                                         }
                                         .screens{
                                             position: absolute;
-                                            left: 13%;
-                                            top: 8%;
-                                            width: calc(100% - 26%);
+                                            left: 18.3%;
+                                            top: 1.6%;
+                                            width: calc(100% - 36%);
                                             & > img{
                                                 width: 100%;
                                                 &:nth-child(n+2){
@@ -1576,6 +1582,13 @@ html {
                             padding: 20px 0 0;
                             font-size: 14px;
                             line-height: 1.43;
+                        }
+                    }
+                }
+                &_success_stories {
+                    .success_story {
+                        .part_story {
+                            text-align: left;
                         }
                     }
                 }
