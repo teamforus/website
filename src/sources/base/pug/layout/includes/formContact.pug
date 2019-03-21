@@ -1,3 +1,18 @@
+script.
+    function onSubmit() {
+                $.post($("#formContact").attr('action'), JSON.stringify({
+            name: $("#formContact input[name='name']").val(),
+            email: $("#formContact input[name='email']").val(),
+            phone: $("#formContact input[name='phone']").val(),
+            organization: $("#formContact input[name='organization']").val(),
+            message: $("#formContact textarea[name='message']").val(),
+            'g-recaptcha-response': $("#formContact textarea[name='g-recaptcha-response']").val()
+        }), function (data) {
+            $(".thanks").show();
+            $("#formContact button").hide();
+        }, 'json');
+    }
+
 form#formContact(action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST" onkeypress="return event.keyCode != 13;")
     .row
         .col-xs-12.col-md-6
@@ -47,4 +62,4 @@ form#formContact(action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/
         .col-xs-12
             .form-group.center-block
                 p.thanks Bedankt! Er wordt zo snel mogelijk contact met u opgenomen.
-                button#formSubmit.main_button.g-recaptcha( disabled="disabled" data-sitekey="6LfA-JcUAAAAAC9SpgAr2ZmL4rFwjb83_U2MDcfQ" data-badge="inline" type="submit") Versturen
+                button#formSubmit.main_button.g-recaptcha( disabled="disabled" data-sitekey="6LfA-JcUAAAAAC9SpgAr2ZmL4rFwjb83_U2MDcfQ" data-badge="inline" data-callback="onSubmit" type="submit") Versturen

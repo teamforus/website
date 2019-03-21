@@ -200,7 +200,7 @@ $(document).ready(function(){
         $(this).closest('.form-group').find('.form-control').val('');
 
         validateElement($(this).closest('.form-group').find('.form-control'));
-    });
+    });    
 
     $('#formSubmit').click(function(){
         $.post($("#formContact").attr('action'), JSON.stringify({
