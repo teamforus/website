@@ -27,7 +27,7 @@ function validateElement(element){
 
     $(element).closest('.form-group').removeClass('has-error').find('.help-block').html('');
 
-    if($(element).attr('id') == 'nameInput'){
+    if($(element).attr('name') == 'name'){
         names_field = $(element);
         names = $(element).val();
 
@@ -36,7 +36,7 @@ function validateElement(element){
             $(names_field).closest('.form-group').addClass('has-error');
         }
     }
-    else if($(element).attr('id') == 'emailInput'){
+    else if($(element).attr('name') == 'email'){
         email_field = $(element);
         email = $(element).val();
 
@@ -45,7 +45,7 @@ function validateElement(element){
             $(email_field).closest('.form-group').addClass('has-error');
         }
     }
-    else if($(element).attr('id') == 'messageInput'){
+    else if($(element).attr('name') == 'message'){
         message_field = $(element);
         message = $(element).val();
 
@@ -54,7 +54,7 @@ function validateElement(element){
             $(message_field).closest('.form-group').addClass('has-error');
         }
     }
-    else if($(element).attr('id') == 'telInput'){
+    else if($(element).attr('name') == 'phone'){
         telephone_field = $(element);
         telephone = $(element).val();
 
@@ -101,6 +101,7 @@ $('.wrapper_tab_video video').hover(function toggleControls() {
         this.setAttribute("controls", "controls")
     }
 });
+
 $(document).ready(function(){
 
     $( 'a[data-toggle="tab"]' ).on('shown.bs.tab', function(e) {
@@ -115,16 +116,15 @@ $(document).ready(function(){
 
             $(video)[0].pause();
         });
-
     });
 
-    $('form#formContact .form-group .form-control').on('change',function(){
+    $('form#formContact .form-group .form-control, form#formContactHome .form-group .form-control').on('change',function(){
         validateElement($(this));
     }).on('keyup', function (e) {
         validateElement($(this));
     });
 
-    $('form#formContact .form-group input.form-control').on('keypress', function (e) {
+    $('form#formContact .form-group input.form-control, form#formContactHome .form-group input.form-control').on('keypress', function (e) {
         if(e.which === 13){
             validateElement($(this));
         }
@@ -149,9 +149,13 @@ $("#modalContact").on('show.bs.modal', function (e) {
     });
     $('#formSubmit').prop('disabled','disabled');
 });
+
 $("#modalContact").on('hidden.bs.modal', function (e) {
     $('body > .wrapper, body > header, body > footer').each(function (i, el) {
         $(el).removeClass('blur');
     });
 });
 
+$(window).on('load', function () {
+    $('#formSubmitHome').prop('disabled','disabled');
+});

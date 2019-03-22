@@ -1034,7 +1034,7 @@ html {
                 }
             }
         }
-        #formContact, #other{
+        #formContact, #formContactHome{
             textarea{
                 height: 100px!important;
                 resize: none;
@@ -1336,7 +1336,7 @@ html {
                     margin-bottom: 30px;
                     background-image: linear-gradient(to top, #f8fafb, rgba(251, 252, 253, 0));
                     .wrapper_title{
-                        font-size: 36px;
+                        font-size: 34px;
                         margin: 0 0 20px;
                     }
                     .success_story{
