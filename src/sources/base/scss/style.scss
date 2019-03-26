@@ -67,6 +67,7 @@ html {
 
         .thanks {
             display:none;
+            text-align: center;
         }
         .grecaptcha-badge {
             display: none;
@@ -1032,10 +1033,11 @@ html {
                 }
             }
         }
-        #formContact, #other{
+        #formContact, #formContactHome{
             textarea{
                 height: 100px!important;
                 resize: none;
+                overflow: hidden;
             }
             input,
             textarea,
@@ -1333,7 +1335,7 @@ html {
                     margin-bottom: 30px;
                     background-image: linear-gradient(to top, #f8fafb, rgba(251, 252, 253, 0));
                     .wrapper_title{
-                        font-size: 36px;
+                        font-size: 34px;
                         margin: 0 0 20px;
                     }
                     .success_story{
@@ -1427,8 +1429,8 @@ html {
                     margin-bottom: 100px;
                     padding: 40px 0!important;
                     &:after{
-                        bottom: -70px;
-                        width: 75%;
+                        bottom: -60px;
+                        width: 50%;
                     }
                     ul{
                         li{
