@@ -108,6 +108,10 @@ $(document).ready(function(){
 
         e.preventDefault();
 
+        var target = $(e.target).attr("href");
+        var tab_block;
+        var video;
+
         $('.wrapper_tab_video').each(function (i, el) {
             var video = $(el).find('video');
             var play_btn = $(el).closest('.tab-pane').find('.btn_link');
@@ -116,6 +120,28 @@ $(document).ready(function(){
 
             $(video)[0].pause();
         });
+        $( 'a[data-toggle="tab"]' ).each(function (i, el) {
+            var btn = $(el).find('.btn_link');
+
+            $(btn).removeClass('active');
+        });
+
+        if (target == '#panel1') {
+            tab_block=$('#panel1');
+        } else if (target == '#panel2'){
+            tab_block=$('#panel2');
+        } else if (target == '#panel3'){
+            tab_block=$('#panel3');
+        } else if (target == '#panel4'){
+            tab_block=$('#panel4');
+        }
+
+        video = $(tab_block).find('.wrapper_tab_video video');
+
+        $(this).find('.btn_link').toggleClass('active');
+
+        $(video)[0].currentTime = 0;
+        $(video)[0].play();
     });
 
     $('form#formContact .form-group .form-control, form#formContactHome .form-group .form-control').on('change',function(){
