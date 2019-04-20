@@ -320,7 +320,8 @@ var pug_compiler = function(source, platform, src, dest) {
             data: {
                 qdt_c: {
                     platform: platform
-                }
+                },
+                qdt_e: qdt_e.platforms_data
             }
         })),
         gulp.dest(platform.paths.root + dest));
