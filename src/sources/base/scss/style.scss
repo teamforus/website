@@ -464,6 +464,23 @@ html {
                     color: #191a1c;
                     text-align: left;
                 }
+                .txt_link{
+                    display: flex;
+                    align-items: center;
+                    line-height: 26px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    span {
+                        color: $forus-demi-blue;
+                        font-weight: 500;
+                        padding: 0 10px;
+                    }
+                    svg{
+                        fill: $forus-demi-blue;
+                        height: 22px;
+                        width: 22px;
+                    }
+                }
                 .btn_link{
                     position: relative;
                     left: -20px;
