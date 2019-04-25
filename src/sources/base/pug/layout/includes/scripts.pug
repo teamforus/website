@@ -29,3 +29,11 @@ if (qdt_c.platform.libs.angular)
 script(src="assets/js/JStick/jquery.JStick.js")
 //- custom script
 script(src="assets/js/app.js")
+
+script.
+    function onSubmitCFModal() {
+        $('button#formSubmit').trigger('recaptcha-form');
+    }
+    function onSubmitCFHome() {
+        $('button#formSubmitHome').trigger('recaptcha-form');
+    }

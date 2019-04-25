@@ -24,25 +24,3 @@ head
     //- custom style
     link(rel="stylesheet", href="assets/css/style.css")
     script(src="https://www.google.com/recaptcha/api.js?hl=nl" async defer)
-    script.
-        function onSubmit(el) {
-            var form = $(el).closest('form');
-            $.post($(form).attr('action'), JSON.stringify({
-                 name: $(form).find("input[name='name']").val(),
-                 email: $(form).find("input[name='email']").val(),
-                 phone: $(form).find("input[name='phone']").val(),
-                 organization: $(form).find("input[name='organization']").val(),
-                 message: $(form).find("textarea[name='message']").val(),
-                 'g-recaptcha-response': $(form).find("textarea[name='g-recaptcha-response']").val()
-             }), function (data) {
-                $(form).find(".thanks").show();
-                $(form).find("button").hide();
-             }, 'json');
-        }
-        function onSubmitCFModal() {
-            onSubmit($('button#formSubmit'));
-        }
-        function onSubmitCFHome() {
-            onSubmit($('button#formSubmitHome'));
-        }
-

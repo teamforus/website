@@ -79,6 +79,25 @@ function validateElement(element){
     }
 }
 
+function onSubmit(el) {
+    var form = $(el).closest('form');
+    $.post(form.attr('action'), JSON.stringify({
+        name: form.find("input[name='name']").val(),
+        email: form.find("input[name='email']").val(),
+        phone: form.find("input[name='phone']").val(),
+        organization: form.find("input[name='organization']").val(),
+        message: form.find("textarea[name='message']").val(),
+        'g-recaptcha-response': form.find("textarea[name='g-recaptcha-response']").val()
+    }), function (data) {
+        form.find(".thanks").show();
+        form.find("button").hide();
+    }, 'json');
+}
+
+$('button#formSubmit, button#formSubmitHome').on('recaptcha-form', function () {
+    onSubmit(this);
+});
+
 $('.wrapper_tab_video video').hover(function toggleControls() {
     if (this.hasAttribute("controls")) {
         this.removeAttribute("controls")
