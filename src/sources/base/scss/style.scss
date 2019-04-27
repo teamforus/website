@@ -11,7 +11,13 @@
 
 // DEV PAGES
 @import 'includes/dev-pages';
-
+@mixin timeline-entry {
+	@for $i from 1 through 11 {
+		&:nth-child(#{$i}) {
+			grid-area: entry#{$i};
+		}
+	}
+}
 html {
     // code
     //
@@ -1049,6 +1055,183 @@ html {
                     margin: 40px auto 0;
                     max-width: 835px;
                 }
+            }
+
+            &_aboutus {
+                .wrapper_title{
+                    font-size: 72px;
+                    font-family: Montserrat;
+                    font-weight: 500;
+                    line-height: 0.75;
+                    color: #000000;
+                }
+                .wrapper_desc {
+                    margin-bottom: 25px;
+                    ul {
+                        display: inline-block;
+                        margin: 0 auto;
+                        li {
+                            float: Left;
+                            padding: 15px;
+                            margin: 50px;
+                            &.tab-active {
+                                width: 183px;
+                                height: 50px;
+                                font-family: Montserrat;
+                                font-size: 21px;
+                                font-weight: 500;
+                                font-style: normal;
+                                font-stretch: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                color: #222530;
+                                border-bottom: solid 2px #191a1c;
+                            }
+                            &.tab-inactive {
+                                width: 183px;
+                                height: 50px;
+                                opacity: 0.6;
+                                font-family: Montserrat;
+                                font-size: 21px;
+                                font-weight: 500;
+                                font-style: normal;
+                                font-stretch: normal;
+                                line-height: normal;
+                                letter-spacing: normal;
+                                color: #9b9b9b;
+                                border-bottom: solid 2px #dbdbddd5;
+                                &:hover, &:active, &focus{
+                                    cursor: not-allowed;
+                                    color: #222530;
+                                    cursor: not-allowed;
+                                    border-bottom: solid 2px #191a1c;
+                                }
+                            }
+                        }
+                    }
+                      
+                }
+            }
+            &_timeline {
+                .timeline {
+                    margin-bottom: 75px;
+                    line-height: 1.5em;
+                    font-size: 14px;
+                    transition: all .4s ease;
+                    position: relative;
+                    text-align: right;
+                    display: grid;
+                    grid-column-gap: 0;
+                    grid-row-gap: 10em;
+                    grid-template-areas: 	".  entry1"
+                                            "entry2  ."
+                                            ". entry3"
+                                            "entry4 ."
+                                            ". entry5"
+                                            "entry6 ."
+                                            ". entry7"
+                                            "entry8 ."
+                                            ". entry9"
+                                            "entry10 ."
+                                            ". entry11";
+                                            justify-items: center;
+                	&:before {
+                        content:"";
+                        width: 3px;
+                        height: 100%;
+                        background: #dadde7;
+                        position: absolute;
+                        left: 50%;
+                        border-radius: 40px 40px;
+                    } 
+                    .timeline_entry {
+                        @include timeline-entry;
+                        width:100%;
+                        max-width:450px;
+                        position: relative;
+                        &_title {
+                            color: #000;
+                            font-family: Montserrat;
+                            font-size: 21px;
+                            font-weight: bold;
+                            text-align: left;
+                            width: auto;
+                            margin-bottom: 10px;
+                            margin-left: 0px;
+
+                            &:after {
+                                content: "";
+                                position: absolute;  
+                                left: 0;
+                                margin-left:-60px;
+                                right: 0px; /*0 without gap*/
+                                top:0px;
+                                bottom: 0;
+                                border-bottom: 1px solid #dadde7;
+                            }
+                        }
+                        .date_align {
+                            position: absolute;  
+                            font-size: 16px;
+                            font-weight: 500;
+                            font-family: Montserrat;
+                            color: #7e818c;  
+                            bottom:-25px;
+                            &_right{
+                                right: -200px; 
+                            }
+                            &_left {
+                                left: -200px; 
+                            }
+                        }
+                        .even {
+                            text-align: right !important;
+                            &:after {
+                                margin-left:0px;
+                                margin-right:-50px;
+                            }
+                        }
+                        &:before {
+                            content: "";                      
+                            width: 60px;
+                            height: 60px;
+                            background-color: #dadde7;
+                            border: 0;
+                            border-radius: 50%;
+                            position: absolute;
+                        }
+                        &:after {
+                            content: "";                      
+                            width: 20px;
+                            height: 20px;
+                            background-color: #dadde7;
+                            border: 0;
+                            border-radius: 50%;
+                            position: absolute;
+                        }
+                        &:nth-of-type(odd){
+                            &:before {
+                                left: -6.3em;
+                                bottom: -28px;
+                            }
+                            &:after {
+                                right: 0;
+                                bottom: -10px;
+                            } 
+                        }
+                    
+                        &:nth-of-type(even){
+                            &:before { 
+                                right: -6.5em;
+                                bottom: -27px;
+                            }
+                            &:after {
+                                left: 0;
+                                bottom: -10px;
+                            } 
+                        }    
+                    }
+                }  
             }
         }
         footer{

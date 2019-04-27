@@ -1,0 +1,105 @@
+extends layout/layout
+block content
+    .wrapper.wrapper_aboutus
+        .container
+            h1.wrapper_title Over ons
+            .wrapper_desc
+                ul
+                    li.tab-active Geschiedenis
+                    li.tab-inactive Nu
+                    li.tab-inactive Toekomst
+    .wrapper.wrapper_timeline
+        .container
+            .timeline
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Maarten loopt stage bij Zuidhorn
+                    dl.timeline_entry_date.date_align.date_align_left JAN 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.even Zuidhorn wint Hackathon
+                    dl.timeline_entry_date.date_align.date_align_right FEB 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Start van Stichting Forus
+                    dl.timeline_entry_date.date_align.date_align_left MRT 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.even Zuidhorn laat Forus Kindpakket uitgeven
+                    dl.timeline_entry_date.date_align.date_align_right JUN 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Stichting Forus krijgt SBIR gegunt
+                    dl.timeline_entry_date.date_align.date_align_left OKT 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.even Kindpakket Zuidhorn gaat live
+                    dl.timeline_entry_date.date_align.date_align_right NOV 2017
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Prototypes van het platform en identiteit: Forus en Me
+                    dl.timeline_entry_date.date_align.date_align_left AUG 2018
+                dl.timeline_entry
+                    dt.timeline_entry_title.even Forus en Me live: Kindpakket Zuidhorn
+                    dl.timeline_entry_date.date_align.date_align_right NOV 2018
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Kerstpakket Forus live
+                    dl.timeline_entry_date.date_align.date_align_left DEC 2018
+                dl.timeline_entry
+                    dt.timeline_entry_title.even Meedoen-regeling Nijmegen live
+                    dl.timeline_entry_date.date_align.date_align_right JAN 2019
+                dl.timeline_entry
+                    dt.timeline_entry_title.uneven Forus is klaar voor nieuwe implementaties
+                    dl.timeline_entry_date.date_align.date_align_left VANDAAG
+
+    .wrapper.wrapper_contact_form.hidden-sm.hidden-md.hidden-lg
+        .container
+            form#formContactHome(action="https://xlak8w5706.execute-api.eu-west-1.amazonaws.com/Prod" method="POST")
+                .row
+                    .col-xs-12.col-md-6
+                        .form-group.required
+                            label.control-label NAAM
+                            .input-group
+                                input#nameInput.form-control(placeholder="Naam" name="name"  value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group.required
+                            label.control-label EMAIL
+                            .input-group
+                                input#emailInput.form-control(placeholder="Email" name="email" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group
+                            label.control-label ORGANISATIE
+                            .input-group
+                                input#companyInput.form-control(placeholder="Organisatie" name="organization" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.col-md-6
+                        .form-group
+                            label.control-label TELEFOONNUMMER
+                            .input-group
+                                input#telInput.form-control(placeholder="Telefoonnumber" name="phone" value="" onkeyup="this.setAttribute('value', this.value);" )
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12
+                        .form-group.required
+                            label.control-label BERICHT
+                            .input-group
+                                textarea#messageInput.form-control(placeholder="Bericht" name="message")
+
+                                a(href="#").clear_field
+                                    include ../resources/assets/img/svg/clear-field.svg
+                                span.help-block
+                    .col-xs-12.info
+                        span(style="color: red") *
+                        | velden zijn verplicht
+                    .col-xs-12
+                        .form-group.center-block
+                            p.thanks Bedankt! Er wordt zo snel mogelijk contact met u opgenomen.
+                            button#formSubmitHome.main_button.g-recaptcha( data-sitekey="6LfA-JcUAAAAAC9SpgAr2ZmL4rFwjb83_U2MDcfQ" data-callback="onSubmitCFHome" data-badge="inline" type="button") Versturen
+
+
+
+
+
+
