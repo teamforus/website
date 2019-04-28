@@ -231,7 +231,6 @@ html {
                                             color: #fff;
                                             background: $forus-sky-blue;
                                             font-weight: bold;
-                                            cursor: not-allowed;
                                         }
                                     }
                                 }
@@ -1114,7 +1113,7 @@ html {
             }
             &_timeline {
                 .timeline {
-                    margin-bottom: 75px;
+                    margin-bottom: 155px;
                     line-height: 1.5em;
                     font-size: 14px;
                     transition: all .4s ease;
@@ -1122,7 +1121,7 @@ html {
                     text-align: right;
                     display: grid;
                     grid-column-gap: 0;
-                    grid-row-gap: 10em;
+                    grid-row-gap: 15em;
                     grid-template-areas: 	".  entry1"
                                             "entry2  ."
                                             ". entry3"
@@ -1134,7 +1133,7 @@ html {
                                             ". entry9"
                                             "entry10 ."
                                             ". entry11";
-                                            justify-items: center;
+                    justify-items: center;
                 	&:before {
                         content:"";
                         width: 3px;
@@ -1149,6 +1148,7 @@ html {
                         width:100%;
                         max-width:450px;
                         position: relative;
+                    
                         &_title {
                             color: #000;
                             font-family: Montserrat;
@@ -1167,7 +1167,43 @@ html {
                                 right: 0px; /*0 without gap*/
                                 top:0px;
                                 bottom: 0;
-                                border-bottom: 1px solid #dadde7;
+                                border-bottom: 2px solid #dadde7;
+                            }
+                        }
+                        &_description {
+                            position: absolute;
+                            bottom: -100px;
+                            top:50px;
+                            max-width: 430px;
+                            max-height: 10em;
+                            font-family: Montserrat;
+                            font-size: 18px;
+                            line-height: 1.44;
+                            color: #454545;
+                            &_left {
+                                text-align: left;
+                            }
+                            &_right {
+                                right: 0px;
+                                text-align: right;
+                            }
+                            &_twolines {
+                                top: 75px;
+                            }
+                            span.txt_link {
+                                line-height: 26px;
+                                font-size: 18px;
+                                cursor: pointer;
+                                span {
+                                    color: $forus-demi-blue;
+                                    font-weight: 500;
+                                }
+                                svg{
+                                    fill: $forus-demi-blue;
+                                    padding-top: 2px;
+                                    height: 14px;
+                                    width: 18px;
+                                }
                             }
                         }
                         .date_align {
