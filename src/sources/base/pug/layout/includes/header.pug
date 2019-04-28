@@ -10,6 +10,17 @@ header
             #navbar.navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li
+                        a(href="#" type="button" data-toggle="collapse" data-target="#nav-product" aria-expanded="false" aria-controls="nav-product") Product
+                            .caret
+                                include ../../../resources/assets/img/svg/arrow.svg
+                        span#nav-product.dropdown.collapse
+                            .dropdown-column-1                                
+                                a(href="about-us.html").zuidhorn Gemeente Zuidhorn
+                                a(href="about-us.html").nijmegen Gemeente Nijmegen
+                            .dropdown-column-2
+                                a(href="about-us.html") Kindpakket
+                                a(href="about-us.html") Meedoenregeling
+                    li
                         a(href="about-us.html") Over ons
 
                 ul.nav.navbar-nav.navbar-right

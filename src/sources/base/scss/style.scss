@@ -234,6 +234,63 @@ html {
                                         }
                                     }
                                 }
+                                span.dropdown {
+                                    position:absolute;
+                                    max-height: 355px;
+                                    border-radius: 20px;
+                                    border: solid 1px #edf0f8;
+                                    background-color: #FFFFFF;
+                                    width: 550px;      
+                                    .dropdown-column-1 {
+                                        width: 273px;
+                                        position:relative;
+                                        float: left;
+                                        a {
+                                            font-weight: 500;
+                                            display: block;
+                                            margin: 31px;
+                                            margin-left: 70px;
+    
+                                            &:before{
+                                                content: '';
+                                                position: absolute;  
+                                                width: 34px;
+                                                display: block;
+                                                height: 34px;
+                                                left: 25px;
+                                                margin-top: -6px;
+                                                background-color: #eef5ff;                                               
+                                                background-position: center center;
+                                                background-repeat: no-repeat;
+                                                border-radius: 5px;
+                                            }
+                                            &.zuidhorn {
+                                                &:before{
+                                                    background-image: url("http://www.zorgsaamoldehove.nl/wp-content/uploads/2017/04/LogoZuidhorn-500x400.png");                                        
+                                                    background-size: 34px 28px;
+                                                }
+                                            }
+                                            &.nijmegen {
+                                                &:before{
+                                                    background-size: 17px 24px;
+                                                    background-image: url("https://www.nijmegen.nl/fileadmin/site/framework/img/beeldmerk.svg");
+                                                }
+                                            }
+                                        }
+                                    }       
+                                    .dropdown-column-2 {
+                                        a {
+                                            font-weight: 600;
+                                            display: block;
+                                            margin: 31px;
+                                        }
+                                        width: 273px;
+                                        position:relative;
+                                        float: right;
+                                        background-color: #fbfbfc;
+                                        border-radius: 20px;
+                                    }                      
+                                }
                                 &.dropdown{
                                     &.open{
                                         a{
