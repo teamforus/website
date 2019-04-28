@@ -1112,7 +1112,138 @@ html {
                     max-width: 835px;
                 }
             }
+            &_fund {
+                .container {
+                    text-align: center;
+                    width: 100%;
+                }
+                .fund {
+                    font-family: Montserrat;
+                    font-size: 16px;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    color: #7e818c;
+                    text-align: center;
+                    margin-top: 25px;
+                }
+                .wrapper_title {
+                    font-family: Montserrat;
+                    font-size: 72px;
+                    font-weight: 500;
+                    line-height: 0.75;
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+                .wrapper_desc {
+                    height: 84px;
+                    font-family: Montserrat;
+                    font-size: 21px;
+                    line-height: 1.33;
+                    text-align: center;
+                    color: #4a4e5b;
+                }
+                .macbookpro {
+                    width: 1170px;
+                    height: 673px;
+                    object-fit: contain;
+                }                  
+            }
+            &_question {
+                margin-bottom: 100px;
 
+                .wrapper_title {
+                    font-size: 36px;
+                    margin-top: 90px;
+                }
+                .wrapper_desc p {
+                    
+                    font-size: 21px;
+                    font-family: Montserrat;
+                    font-weight: 400;
+                    margin: 25px;
+                }
+            }
+            &_explain {
+                margin-bottom:125px;
+                .container {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                span {
+                    width:462px;
+                    display:block;
+                    float:left;
+                    .wrapper_title {
+                        text-align: left;
+                        font-size: 36px;
+                        line-height: 1.11;
+                        display:block;
+
+                    }
+                    .wrapper_desc {
+                        text-align: left;
+                        font-size: 18px;
+                        line-height: 1.44;
+                    }
+                }   
+            }
+            &_downloads {
+                .container {
+                    max-width: 1008px;
+                }
+                .wrapper_title {
+                    font-size: 36px;
+                    margin-bottom: 40px;
+                }
+                .download_links {
+                    display:flex;
+                    justify-content: space-between; 
+                    flex-direction: row;     
+                    flex-wrap: wrap;              
+                    div {
+                        width: 462px;
+                        height: 124px;
+                        margin-bottom: 65px;
+                        margin-right: 11px;
+                        margin-left: 11px;
+                        background-color: #f4f5f7;
+                        border-radius: 15px;
+                        text-align: center;
+                        cursor: pointer;
+                        &:hover {
+                            box-shadow: 0 10px 50px 0 rgba(7, 42, 68, 0.04);
+                            background-color: #ffffff;
+                        }                        
+                        .dl_icon {
+                            margin: auto;
+                            content: ' ';
+                            width: 48px;
+                            height: 48px;
+                            margin-top: 25px;
+                            display:block;
+                            border-radius: 48px;
+                            background-color: #bdcbff;
+                            .holder {
+                                display:table-cell;
+                                vertical-align:middle;
+                                text-align:center;
+                                width: 48px;
+                                height: 48px;
+                                img {
+                                    width: 25px;
+                                    height: 25px;
+                                    object-fit: contain;
+                                }
+                            }
+                        }
+                        a {
+                            font-size: 21px;
+                            color: #000000;
+                            line-height: 1.43;
+                        }
+                    }
+                }
+            }
             &_aboutus {
                 .wrapper_title{
                     font-size: 72px;
@@ -1542,6 +1673,65 @@ html {
                         }
                     }
                 }
+                &_fund {
+                    .macbookpro {
+                        width: 780px;
+                        height: 400px;
+                    }
+                }
+                &_question {
+                    margin-bottom: 50px;
+                }
+                &_explain {
+                    span {
+                        max-width: 350px;
+                        .wrapper_title {
+                            font-size: 24px;
+                            margin-top: 0px;
+                            margin-bottom: 10px
+                        }
+                        .wrapper_desc {
+                           font-size: 14px;
+                           width: 37vw;
+                        }
+                    }
+                    margin-bottom: 30px;
+                    img {
+                        margin:0;
+                        width: 37vw;
+                        height: 27vw;
+                    }
+                }                
+                &_downloads {
+                    .wrapper_title {
+                        font-size: 24px;
+                    }
+                    .download_links {
+                        div {
+                            width: 346px;
+                            height: 93px;
+                            margin-bottom: 30px;
+                            margin-right: 5px;
+                            margin-left: 5px;
+                            .dl_icon {
+                                height: 32px;
+                                width: 32px;
+                                margin-top: 20px;
+                                .holder {
+                                    height: 32px;
+                                    width: 32px;
+                                    img {
+                                        height: 18px;
+                                        width: 18px;
+                                    }
+                                }
+                            }
+                            a {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -1834,6 +2024,80 @@ html {
                             line-height: 1.6;
                             letter-spacing: normal;
                             margin-bottom: 16px!important;
+                        }
+                    }
+                }
+                &_fund {
+                    .fund { 
+                        font-size: 10px;
+                    }
+                    .wrapper_title {
+                        font-size: 34px;
+                    }
+                    .wrapper_desc {
+                        font-size: 14px;
+                    }
+                    .macbookpro {
+                        width: 75vw;
+                        height: 50vw;
+                    }
+                }
+                &_question {
+                    margin-bottom: 30px;
+                    .wrapper_title {
+                        font-size: 24px;
+                        margin-top: 30px;
+                    }
+                    .wrapper_desc {
+                        p { 
+                            font-size: 14px;
+                        }
+                    }                   
+                }
+                &_explain {
+                    margin-bottom: 30px;
+                    .wrapper_title {
+                        font-size: 24px;
+                    }
+                    .wrapper_desc {
+                       font-size: 14px;
+                    }
+                    &_image-left {
+                        margin:0;
+                        width: 535px;
+                    }
+                    &_image-right {
+                        margin:0;
+                        width: 535px;
+                    }
+                }
+                &_downloads {
+                    .wrapper_title {
+                        font-size: 24px;
+                    }
+                    .download_links {
+                        div {
+                            width: 231px;
+                            height: 62px;
+                            margin-bottom: 30px;
+                            margin-right: 11px;
+                            margin-left: 11px;
+                            .dl_icon {
+                                height: 24px;
+                                width: 24px;
+                                margin-top: 12px;
+                                .holder {
+                                    height: 24px;
+                                    width: 24px;
+                                    img {
+                                        height: 12px;
+                                        width: 12px;
+                                    }
+                                }
+                            }
+                            a {
+                                font-size: 12px;
+                            }
                         }
                     }
                 }

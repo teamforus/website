@@ -94,6 +94,11 @@ $('.btn_link').on('click', function(e) {
     }
 });
 
+$(".dl_box").on('click', function(e) {
+    window.location = $(this).find("a").attr("href"); 
+    return false;
+    });
+
 $('.wrapper_tab_video video').hover(function toggleControls() {
     if (this.hasAttribute("controls")) {
         this.removeAttribute("controls")
